@@ -235,3 +235,44 @@
   });
 
 })();
+
+
+$(document).ready(function () {
+  var currentIndex = 0;
+  var items = $(".menu-item");
+  var itemLength = items.length;
+  var maxVisibleItems = 8;
+  var remainingItems = itemLength - maxVisibleItems;
+
+  // Sembunyikan item-item yang tidak termasuk dalam 8 item pertama
+  items.slice(maxVisibleItems).hide();
+
+  // Function untuk menampilkan item-item berikutnya
+  function showNext() {
+    if (remainingItems > 0) {
+      items.eq(currentIndex).hide();
+      currentIndex++;
+      items.eq(currentIndex + maxVisibleItems - 1).show();
+      currentIndex %= remainingItems;
+    }
+  }
+
+  // Function untuk menampilkan item-item sebelumnya
+  function showPrev() {
+    if (currentIndex > 0) {
+      items.eq(currentIndex + maxVisibleItems - 1).hide();
+      currentIndex--;
+      items.eq(currentIndex).show();
+    }
+  }
+
+  // Event handler untuk tombol Next
+  $(".next").click(function () {
+    showNext();
+  });
+
+  // Event handler untuk tombol Prev
+  $(".prev").click(function () {
+    showPrev();
+  });
+});
