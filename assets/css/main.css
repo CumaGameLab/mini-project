@@ -882,17 +882,18 @@ section {
 .menu .tab-content .tab-header h3 {
   font-size: 36px;
   font-weight: 600;
-  color: var(--color-primary);
+  color: #F17228;
 }
 
 .menu .tab-content .menu-item {
   -moz-text-align-last: center;
-  text-align-last: center;
+  text-align-last: left;
 }
 
 .menu .tab-content .menu-item .menu-img {
-  padding: 0 60px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  width: 430px;
+  border-radius: 20px;
 }
 
 .menu .tab-content .menu-item h4 {
@@ -1650,4 +1651,46 @@ section {
 
 .footer .credits a {
   color: #fff;
+}
+
+
+/* daftar menu */
+.harga {
+  background-color: #FFE9DD;
+  color: orange;
+  font-weight: bold;
+  width: 35%; 
+  padding: 5px; 
+}
+
+#menu {
+  position: relative;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  font-size: 60px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+  color: #333; 
+}
+
+.prev {
+  left: 50px;
+}
+
+.next {
+  right: 50px;
+}
+
+.tab-header {
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .prev, .next {
+    display: none;
+  }
 }

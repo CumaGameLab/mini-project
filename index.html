@@ -106,6 +106,93 @@
 
   <main id="main">
 
+
+     <!-- ======= Daftar Menu ======= -->
+     <section id="menu" class="menu section">
+      <div class="container" data-aos="fade-up">
+    
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+    
+          <div class="tab-pane fade active show">
+    
+            <div class="tab-header text-center">
+              <h3>Menu</h3>
+            </div>
+    
+            <div class="row gy-5">
+    
+              <div class="col-lg-3 menu-item">
+            <img src="assets/img/mie-ayam.png" class="menu-img img-fluid" alt="">
+              <p class="fw-bold">Mie Ayam</p>
+              <p class="harga">Rp. 8.000</p>
+          </div><!-- Menu Item -->
+
+          <!-- Tambahkan 2 menu baru di sini -->
+          <div class="col-lg-3 menu-item">
+            <img src="assets/img/mie-ayam.png" class="menu-img img-fluid" alt="">
+            <p class="fw-bold">Mie Ayam Spesial</p>
+            <p class="harga">Rp. 20.000</p>
+          </div><!-- Menu Item -->
+          
+          <div class="col-lg-3 menu-item">
+            <img src="assets/img/mie-ayam.png" class="menu-img img-fluid" alt="">
+            <p class="fw-bold">Mie Ayam Lengkap</p>
+            <p class="harga">Rp. 18.000</p>
+          </div><!-- Menu Item -->
+    
+              <div class="col-lg-3 menu-item">
+                <img src="assets/img/mie-ceker.png" class="menu-img img-fluid" alt="">
+                <p class="fw-bold">Mie Ayam Ceker</p>
+              <p class="harga">Rp. 9.000</p>
+              </div><!-- Menu Item -->
+    
+              <div class="col-lg-3 menu-item">
+                <img src="assets/img/mie-pentol.png" class="menu-img img-fluid" alt="">
+                <p class="fw-bold">Mie Ayam Pentol</p>
+              <p class="harga">Rp. 12.000</p>
+              </div><!-- Menu Item -->
+    
+              <div class="col-lg-3 menu-item">
+                <img src="assets/img/mie-ceker.png" class="menu-img img-fluid" alt="">
+                <p class="fw-bold">Mie Ayam Ceker Pentol</p>
+              <p class="harga">Rp. 15.000</p>
+              </div><!-- Menu Item -->
+    
+              <div class="col-lg-3 menu-item">
+                <img src="assets/img/pop-ice.png" class="menu-img img-fluid" alt="">
+                <p class="fw-bold">Pop Ice</p>
+              <p class="harga">Rp. 5.000</p>
+              </div><!-- Menu Item -->
+    
+              <div class="col-lg-3 menu-item">
+                <img src="assets/img/teh.png" class="menu-img img-fluid" alt="">
+                <p class="fw-bold">Es Teh</p>
+                <p class="harga">Rp. 3.000</p>
+              </div><!-- Menu Item -->
+    
+              <div class="col-lg-3 menu-item">
+                <img src="assets/img/jeruk.png" class="menu-img img-fluid" alt="">
+                <p class="fw-bold">Es Jeruk</p>
+              <p class="harga">Rp. 3.000</p>
+              </div><!-- Menu Item -->
+    
+              <div class="col-lg-3 menu-item">
+                <img src="assets/img/kopi.png" class="menu-img img-fluid" alt="">
+                <p class="fw-bold">Kopi</p>
+                <p class="harga">Rp. 4.000</p>
+              </div><!-- Menu Item -->
+    
+            </div>
+          </div><!-- End Starter Menu Content -->
+    
+        </div>
+
+        <i class="fas fa-chevron-left prev"></i>
+        <i class="fas fa-chevron-right next"></i>
+      </div>
+    </section>
+    
+
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
@@ -1079,9 +1166,55 @@
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Tambahkan link jQuery di sini -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var currentIndex = 0;
+    var items = $('.menu-item');
+    var itemLength = items.length;
+    var maxVisibleItems = 8;
+    var remainingItems = itemLength - maxVisibleItems;
+
+    // Sembunyikan item-item yang tidak termasuk dalam 8 item pertama
+    items.slice(maxVisibleItems).hide();
+
+    // Function untuk menampilkan item-item berikutnya
+    function showNext() {
+      if (remainingItems > 0) {
+        items.eq(currentIndex).hide();
+        currentIndex++;
+        items.eq(currentIndex + maxVisibleItems - 1).show();
+        currentIndex %= remainingItems;
+      }
+    }
+
+    // Function untuk menampilkan item-item sebelumnya
+    function showPrev() {
+      if (currentIndex > 0) {
+        items.eq(currentIndex + maxVisibleItems - 1).hide();
+        currentIndex--;
+        items.eq(currentIndex).show();
+      }
+    }
+
+    // Event handler untuk tombol Next
+    $('.next').click(function() {
+      showNext();
+    });
+
+    // Event handler untuk tombol Prev
+    $('.prev').click(function() {
+      showPrev();
+    });
+  });
+</script>
+
 
 </body>
 
