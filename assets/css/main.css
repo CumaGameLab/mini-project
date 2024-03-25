@@ -1723,9 +1723,37 @@ section {
   margin-bottom: 20px;
 }
 
-@media only screen and (max-device-width: 480px) {
-  .prev,
+@media only screen and (max-width: 480px) {
+  .prev {
+    left: 30%;
+    top: calc(98% + 8px); 
+  }
+  
   .next {
-    display: none;
+    right: 30%;
+    top: calc(98% + 8px); 
   }
 }
+
+
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .harga {
+    width: 40%;
+  }
+  .prev,
+  .next {
+    position: absolute;
+    bottom: 5px;
+    transform: translateY(100%);
+  }
+
+  .prev {
+    left: 8px;
+  }
+
+  .next {
+    right: 8px;
+  }
+}
+
+
