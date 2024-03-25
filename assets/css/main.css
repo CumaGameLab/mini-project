@@ -261,7 +261,7 @@ section {
 }
 
 .header .logo h1 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: #000;
   margin: 0;
@@ -274,7 +274,7 @@ section {
 
 .header .btn-book-a-table,
 .header .btn-book-a-table:focus {
-  font-size: 14px;
+  font-size: 10px;
   color: #fff;
   background: var(--color-primary);
   padding: 8px 20px;
