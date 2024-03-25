@@ -247,26 +247,33 @@ $(document).ready(function () {
   var maxVisibleItems = 8;
   var remainingItems = itemLength - maxVisibleItems;
 
-  // Sembunyikan item-item yang tidak termasuk dalam 8 item pertama
+  // Fungsi untuk menyembunyikan item-item yang tidak termasuk dalam 8 item pertama
   items.slice(maxVisibleItems).hide();
 
-  // Function untuk menampilkan item-item berikutnya
+  // Fungsi untuk menampilkan item-item berikutnya
   function showNext() {
     if (remainingItems > 0) {
-      items.eq(currentIndex).hide();
       currentIndex++;
-      items.eq(currentIndex + maxVisibleItems - 1).show();
-      currentIndex %= remainingItems;
+      if (currentIndex >= remainingItems) {
+        currentIndex = 0;
+      }
+      updateItemsVisibility();
     }
   }
 
-  // Function untuk menampilkan item-item sebelumnya
+  // Fungsi untuk menampilkan item-item sebelumnya
   function showPrev() {
     if (currentIndex > 0) {
-      items.eq(currentIndex + maxVisibleItems - 1).hide();
       currentIndex--;
-      items.eq(currentIndex).show();
+    } else {
+      currentIndex = remainingItems - 1;
     }
+    updateItemsVisibility();
+  }
+
+  // Fungsi untuk memperbarui visibilitas item berdasarkan currentIndex
+  function updateItemsVisibility() {
+    items.hide().slice(currentIndex, currentIndex + maxVisibleItems).show();
   }
 
   // Event handler untuk tombol Next
@@ -279,6 +286,7 @@ $(document).ready(function () {
     showPrev();
   });
 });
+
 
 $(document).ready(function () {
   $("#submit-message").click(function (event) {
