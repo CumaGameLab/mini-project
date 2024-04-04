@@ -1373,6 +1373,18 @@ section {
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
+
+.contact .section-header h3{
+  font-size: 36px;
+  font-weight: 600;
+  color: #f17228;
+}
+.contact .section-header p{
+  font-size: 26px;
+  font-weight: 200;
+  color: #060606;
+}
+
 .contact .info-item {
   background: #f4f4f4;
   padding: 30px;
